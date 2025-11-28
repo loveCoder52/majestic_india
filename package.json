@@ -1,22 +1,23 @@
 {
-  "name": "majestic_india",
+  "name": "majestic-india",
   "version": "1.0.0",
-  "description": "",
-  "license": "ISC",
-  "author": "Love Sharma, Anubhav Yadav",
-  "type": "module",
-  "main": "index.js",
+  "description": "Full-stack application for Majestic India",
+  "private": true,
   "scripts": {
-    "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js"
+    "dev:server": "cd server && npm run dev",
+    "dev:client": "cd client && npm run dev",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "install:server": "cd server && npm install",
+    "install:client": "cd client && npm install",
+    "install:all": "npm run install:server && npm run install:client",
+    "build": "cd client && npm run build",
+    "start": "cd server && npm start"
   },
-  "dependencies": {
-    "bcrypt": "^6.0.0",
-    "cookie-parser": "^1.4.7",
-    "cors": "^2.8.5",
-    "dotenv": "^17.2.3",
-    "express": "^5.1.0",
-    "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.20.0",
-    "nodemon": "^3.1.11"
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
   }
 }
+
