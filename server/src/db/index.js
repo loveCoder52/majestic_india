@@ -10,7 +10,9 @@ const ConnectDB = async () => {
         console.log(`🍃 MongoDB Connected! Host: ${connectionInstance.connection.host}`);
     } catch (error) {
         console.log("❌ MongoDB Connection Error:", error);
-        process.exit(1);
+        // Keep the process alive so the error is visible and the developer can fix env vars locally.
+        // Rethrow so the caller can decide whether to start the app or not.
+        throw error;
     }
 };
 

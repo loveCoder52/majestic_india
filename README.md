@@ -136,6 +136,15 @@ npm start
 - **Backend API:** http://localhost:5000
 - **Test Endpoint:** http://localhost:5000/test
 
+### MongoDB / `MONGO_URI` (Troubleshooting)
+
+- For **local MongoDB** use a URI like `mongodb://127.0.0.1:27017/<dbname>`.
+- For **MongoDB Atlas** use the provided connection string (usually starts with `mongodb+srv://`). Replace the `<username>`, `<password>` and `<dbname>` placeholders.
+- If you see errors like `querySrv ENOTFOUND _mongodb._tcp.<cluster>.mongodb.net`, ensure:
+  - Your DNS can resolve SRV records, and
+  - The Atlas cluster allows your IP (add it to IP Access List in Atlas or use `0.0.0.0/0` temporarily for testing).
+- After adjusting `.env` in `server/`, restart the server: `npm run dev:server` or `npm run dev` at project root.
+
 ## 📡 API Endpoints
 
 ### Authentication

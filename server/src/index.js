@@ -16,9 +16,12 @@ ConnectDB()
 .then(()=> {
     app.listen(PORT, ()=>{
         console.log(`server is running on port ${PORT}`);
-        
     });
 })
 .catch((error)=>{
     console.log(`mongoDB connection failed`, error);
+    console.warn('Starting server without DB connection — development mode only.');
+    app.listen(PORT, ()=>{
+        console.log(`server is running on port ${PORT} (DB not connected)`);
+    });
 });
